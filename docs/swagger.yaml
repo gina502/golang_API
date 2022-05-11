@@ -1,0 +1,92 @@
+basePath: /v1/users
+definitions:
+  pojo.User:
+    properties:
+      UserEmail:
+        type: string
+      UserId:
+        type: integer
+      UserName:
+        type: string
+      UserPassword:
+        type: string
+    type: object
+host: localhost:8000
+info:
+  contact: {}
+  description: Gin swagger
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  title: Gin swagger
+  version: "1.0"
+paths:
+  /:
+    get:
+      produces:
+      - application/json
+      responses: {}
+      summary: Get AllUser
+      tags:
+      - User
+    post:
+      parameters:
+      - description: id_name_password_email
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/pojo.User'
+      produces:
+      - application/json
+      responses: {}
+      summary: Post
+      tags:
+      - User
+  /{id}:
+    delete:
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses: {}
+      summary: Delete
+      tags:
+      - User
+    get:
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses: {}
+      summary: get user by id
+      tags:
+      - User
+    put:
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: id_name_password_email
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/pojo.User'
+      produces:
+      - application/json
+      responses: {}
+      summary: Update
+      tags:
+      - User
+swagger: "2.0"
